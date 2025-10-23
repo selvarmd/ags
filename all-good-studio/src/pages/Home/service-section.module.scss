@@ -1,0 +1,289 @@
+@use '@/styles/abstracts/mixins';
+@use '@/styles/abstracts/variables';
+
+.serviceSection {
+  color: var(--dark);
+  background: var(--black-150) url("/images/background/service-bg.svg") no-repeat fixed right top;
+  background-size: cover;
+  padding: 10% 0;
+
+  @media (min-width: 1600px) {
+    padding: 200px 0;
+  }
+
+  .titleBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 1200px) {
+      gap: 50px;
+    }
+
+    @media (min-width: 1600px) {
+      gap: 30px;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 1;
+
+      @media (min-width: 576px) {
+        font-size: 48px;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 40px;
+        width: 57%;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 52px;
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 54px;
+        width: 56%;
+      }
+
+      @media (min-width: 1400px) {
+        font-size: 72px;
+      }
+
+      @media (min-width: 1600px) {
+        font-size: 80px;
+        width: 58%;
+      }
+    }
+
+    .serviceTitleDescriptionWrapper {
+      @media (min-width: 768px) {
+        width: 38%;
+      }
+
+      .serviceTitleDescription {
+        font-family: var(--font);
+        font-size: 16px;
+        line-height: 20px;
+
+        @media (min-width: 768px) {
+          font-size: 14px;
+          line-height: 17px;
+        }
+
+        @media (min-width: 992px) {
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        @media (min-width: 1400px) {
+          font-size: 24px;
+          line-height: 30px;
+        }
+
+        @media (min-width: 1600px) {
+          font-size: 30px;
+          line-height: 38px;
+        }
+      }
+    }
+  }
+
+  .serviceGridWrapper{ 
+    @media (min-width: 768px) {
+      padding-left: 3%;
+    }
+
+    @media (min-width: 850px) {
+      padding-left: 2%;
+    }
+
+    @media (min-width: 992px) {
+      padding-left: 1%;
+    }
+
+    @media (min-width: 1200px) {
+      padding-left: 9%;
+    }
+
+    @media (min-width: 1300px) {
+      padding-left: 8%;
+    }
+
+    @media (min-width: 1400px) {
+      padding-left: 1%;
+    }
+
+    @media (min-width: 1600px) {
+      padding-left: 6%;
+    }
+
+    .services {
+      gap: 24px;
+      margin: 24px 0;
+      padding-left: 30px;
+
+      @media (min-width: 576px) {
+        padding-left: calc((100vw - 540px) / 1.75);
+      }
+      @media (min-width: 768px) {
+        padding-left: calc((100vw - 720px) / 1.75);
+      }
+      @media (min-width: 992px) {
+        padding-left: calc((100vw - 960px) / 2);
+      }
+      @media (min-width: 1200px) {
+        padding-left: calc((100vw - 1140px) / 2);
+      }
+      @media (min-width: 1400px) {
+        padding-left: calc((100vw - 1320px) / 2);
+      }
+      @media (min-width: 1600px) {
+        padding-left: calc((100vw - 1470px) / 2);
+      }
+
+      .serviceSlide {
+        height: auto;
+        display: flex;
+      }
+
+      .serviceCard {
+        background: var(--light);
+        border-radius: 20px;
+        width: 320px;
+        padding: 20px 20px 65px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        height: 100%;
+        gap: 20px;
+        transition: all 0.3s ease !important;
+        position: relative;
+
+        @media (min-width: 576px) {
+          width: 460px !important;
+          padding: 30px 30px 85px;
+        }
+
+        &:hover {
+          .icon {
+            bottom: 0;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          bottom: -75px;
+          right: -40px;
+          width: 80%;
+          transition: all 0.3s ease !important;
+
+          @media (min-width: 576px) {
+            bottom: -130px;
+          }
+        }
+
+        .serciveCardContent {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-top: auto;
+
+          @media (min-width: 1600px) {
+            gap: 20px;
+          }
+        }
+
+        h3 {
+          font-family: var(--font);
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 30px;
+        }
+
+        p {
+          font-family: var(--font);
+          font-size: 16px;
+          line-height: 18px;
+          font-weight: 500;
+
+          @media (min-width: 1600px) {
+            font-size: 20px;
+            line-height: 24px;
+          }
+        }
+
+        ul {
+          li {
+            font-size: 14px;
+            line-height: 14px;
+            margin: 4px 0;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 6px;
+
+            @media (min-width: 1600px) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            span {
+              height: 6px;
+              width: 6px;
+              border-radius: 50%;
+              border: 1px solid var(--black-550);
+              margin-top: 5px;
+
+              @media (min-width: 992px) {
+                height: 8px;
+                width: 8px;
+                margin-top: 3px;
+              }
+
+              @media (min-width: 1600px) {
+                margin-top: 7px;
+              }
+            }
+          }
+        }
+
+        .priceWrapper {
+          display: flex;
+          margin-top: auto;
+
+          .price {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 500;
+            background-color: var(--black-100);
+            padding: 10px 20px;
+            border-radius: 50px;
+
+            @media (min-width: 1600px) {
+              font-size: 20px;
+              line-height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .reqLinkWrapper {    
+    display: flex;
+    
+    .reqButton {
+      display: flex;
+    }
+  }
+}

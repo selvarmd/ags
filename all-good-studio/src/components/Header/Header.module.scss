@@ -1,0 +1,116 @@
+@use '@/styles/abstracts/mixins';
+@use '@/styles/abstracts/variables';
+
+.header {
+  background-image: linear-gradient(180deg, var(--light) 0%, var(--light) 100%);
+  background-color: transparent !important;
+  color: var(--dark);
+  box-shadow: none !important;
+  transition: all 0.3s ease-in-out !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  height: 80px;
+  justify-content: center;
+  
+  &.scrolled {
+    background-color: var(--light);
+    box-shadow: 0 0 2px 0 rgba(175, 175, 175, 0.5) !important;
+  }
+
+  &.lightHeader {
+    background: var(--light-header-bg);
+    color: var(--dark) !important;
+
+    .navDesktop {
+      .navItem {
+        color: var(--dark);
+      }
+    }
+  }
+
+  &.darkHeader {
+    background: var(--dark-header-bg);
+    color: var(--light) !important;
+
+    .navDesktop {
+      .navItem {
+        color: var(--light);
+      }
+    }
+
+    .bookButton {
+      color: var(--light);
+      background-color: transparent;
+      border-color: var(--light) !important;
+
+      &:hover {
+        color: var(--dark);
+        border-color: var(--light) !important;
+
+        &:before {
+          background: var(--light);
+        }
+      }
+    }
+
+    .toolbar {
+      .themeButton {
+        color: var(--light);
+      }
+    }
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .themeButton {
+      color: var(--dark);
+    }
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.navDesktop {
+  display: none;
+  
+  @media (min-width: 992px) {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navItem {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: none;
+    color: var(--dark);
+    transition: all 0.2s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.05);
+      background-color: transparent;
+    }
+  }
+
+  .bookButton {
+    border-color: var(--black-500) !important;
+
+    &:hover {
+      border-color: var(--dark) !important;
+    }
+  }
+}
+
+.navMobile {
+  display: flex;
+  
+  @media (min-width: 992px) {
+    display: none;
+  }
+}

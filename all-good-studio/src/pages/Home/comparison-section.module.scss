@@ -1,0 +1,139 @@
+@use '@/styles/abstracts/mixins';
+@use '@/styles/abstracts/variables';
+
+.comparisonSection {
+  color: var(--light);
+  background: url("/images/background/comparision-bg.png") no-repeat fixed right center;
+  background-size: cover;
+  padding: 10% 0;
+
+  @media (min-width: 1600px) {
+    padding: 200px 0;
+  }
+
+  .titleBlock {
+    margin-bottom: 30px;
+
+    @media (min-width: 1200px) {
+      margin-bottom: 50px;
+    }
+
+    .title {
+      font-family: var(--font);
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 400;
+      margin-bottom: 24px;
+
+      @media (min-width: 576px) {
+        font-size: 48px;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 40px;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 52px;
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 64px;
+      }
+
+      @media (min-width: 1400px) {
+        font-size: 72px;
+      }
+
+      @media (min-width: 1600px) {
+        font-size: 80px;
+        margin-bottom: 50px;
+      }
+    }
+
+    .subtitle {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 20px;
+
+      @media (min-width: 992px) {
+        font-size: 18px;
+        line-height: 22px;
+        width: 45%;
+      }
+
+      @media (min-width: 992px) {
+        width: 38%;
+      }
+
+      @media (min-width: 1400px) {
+        font-size: 24px;
+        line-height: 30px;
+        width: 40%;
+      }
+
+      @media (min-width: 1600px) {
+        font-size: 30px;
+        line-height: 38px;
+        width: 45%;
+      }
+    }
+  }
+
+  .comparisonBlock {
+    overflow-y: auto;
+
+    .comparisonTable {
+      width: 100%;
+      max-width: 960px;
+      min-width: 450px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .comparisonRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+
+        @media (min-width: 992px) {
+          background-color: rgba(0, 0, 0, 0.5);
+          width: 80%;
+        }
+
+        @media (min-width: 1200px) {
+          width: 100%;
+        }
+      }
+
+      .comparisonHeader {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        white-space: nowrap;
+
+        @media (min-width: 992px) {
+          font-size: 18px;
+        }
+      }
+
+      .comparisonCell {
+        padding: 25px 16px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+
+        @media (min-width: 992px) {
+          font-size: 18px;
+        }
+
+        span {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}

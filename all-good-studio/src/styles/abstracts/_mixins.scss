@@ -1,0 +1,14 @@
+// src/styles/_mixins.scss
+
+@use '../abstracts/variables';
+
+@mixin transition {
+  transition: all 03s ease-in-out;
+}
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
