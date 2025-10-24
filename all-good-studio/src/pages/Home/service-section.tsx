@@ -3,20 +3,19 @@ import { Box, Typography } from "@mui/material";
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import { Autoplay } from "swiper/modules";
-
-import WebLaunchImg from '/images/icons/website-launch.png';
-import ClickablePrototypeImg from '/images/icons/clickable-prototype.png';
-import AuditFixImg from '/images/icons/audit-fix.png';
-import BrandAssetsImg from '/images/icons/brand-assest.png';
-import DesignSystemImg from '/images/icons/design-system.png';
-import WireframesImg from '/images/icons/wireframe-ux.png';
-
-// Swiper styles
 import "swiper/css";
 
-import Styles from './service-section.module.scss';
 import AgsContainer from "@/components/Container/Container";
 import CustomButton from "@/components/Button/Button";
+
+import AuditFixImg from '/images/icons/audit-fix.png';
+import BrandAssetsImg from '/images/icons/brand-assest.png';
+import ClickablePrototypeImg from '/images/icons/clickable-prototype.png';
+import DesignSystemImg from '/images/icons/design-system.png';
+import WireframesImg from '/images/icons/wireframe-ux.png';
+import WebLaunchImg from '/images/icons/website-launch.png';
+
+import Styles from './service-section.module.scss';
 
 interface Service {
   icon: string;

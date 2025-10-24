@@ -1,6 +1,7 @@
-import CustomButton from "@/components/Button/Button";
-import AgsContainer from "@/components/Container/Container";
 import { Box, Link, Typography } from "@mui/material";
+
+import AgsContainer from "@/components/Container/Container";
+import CustomButton from "@/components/Button/Button";
 
 import HeroImg from '/images/hero-banner-img.svg';
 

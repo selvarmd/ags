@@ -1,6 +1,6 @@
 // src/pages/Home/Home.tsx
 import { useEffect } from "react";
-import { useLocation, useOutletContext } from "react-router-dom";
+import { Link, useLocation, useOutletContext } from "react-router-dom";
 import HeroSection from "./hero-section";
 import ServiceSection from "./service-section";
 import ResultsSection from "./result-section";
@@ -23,7 +23,8 @@ export default function Home() {
       const id = location.hash.replace("#", "");
       const el = document.getElementById(id);
       if (el) {
-        const y = el.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT;
+        const y =
+          el.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
     } else {
@@ -38,7 +39,9 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const theme = entry.target.getAttribute("data-theme") as "light" | "dark";
+            const theme = entry.target.getAttribute("data-theme") as
+              | "light"
+              | "dark";
             onThemeChange(theme);
           }
         });
@@ -59,6 +62,12 @@ export default function Home() {
       <TestimonialSection />
       <ComparisonSection />
       <FaqSection />
+      {/* <Link to="/portfolio" state={{ category: "enterpriseux" }}>
+        Enterprise UX
+      </Link>
+      <Link to="/portfolio" state={{ category: "websites" }}>
+        Websites
+      </Link> */}
     </>
   );
 }

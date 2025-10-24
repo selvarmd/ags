@@ -100,19 +100,11 @@
     }
 
     @media (min-width: 850px) {
-      padding-left: 2%;
-    }
-
-    @media (min-width: 992px) {
       padding-left: 1%;
     }
 
     @media (min-width: 1200px) {
-      padding-left: 9%;
-    }
-
-    @media (min-width: 1300px) {
-      padding-left: 8%;
+      padding-left: 2%;
     }
 
     @media (min-width: 1400px) {
@@ -120,7 +112,7 @@
     }
 
     @media (min-width: 1600px) {
-      padding-left: 6%;
+      padding-left: 2%;
     }
 
     .services {
@@ -150,30 +142,23 @@
       .serviceSlide {
         height: auto;
         display: flex;
+        border-radius: 20px;
       }
 
       .serviceCard {
         background: var(--light);
         border-radius: 20px;
-        width: 320px;
+        width: 100%;
         padding: 20px 20px 65px;
         display: flex;
         flex-direction: column;
         flex: 1 1 auto;
         height: 100%;
         gap: 20px;
-        transition: all 0.3s ease !important;
         position: relative;
 
         @media (min-width: 576px) {
-          width: 460px !important;
           padding: 30px 30px 85px;
-        }
-
-        &:hover {
-          .icon {
-            bottom: 0;
-          }
         }
 
         .icon {

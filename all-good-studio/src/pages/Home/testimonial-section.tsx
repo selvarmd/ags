@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { Box, Container, Typography, Button } from "@mui/material";
-import Styles from "./testimonial-section.module.scss";
+import { Box, Typography, Button } from "@mui/material";
+
+import AgsContainer from "@/components/Container/Container";
 
 import CollapseIcon from '/images/icons/nav-arrow-up.svg';
-import UserImg1 from '/images/user-1.png';
-import UserImg2 from '/images/user-2.png';
-import UserImg3 from '/images/user-3.png';
 import TestiImg1 from '/images/testi-1.svg';
 import TestiImg2 from '/images/testi-2.svg';
 import TestiImg3 from '/images/testi-3.svg';
@@ -15,6 +13,11 @@ import TestiImg6 from '/images/testi-6.svg';
 import TestiImg7 from '/images/testi-7.svg';
 import TestiImg8 from '/images/testi-8.svg';
 import TestiImg9 from '/images/testi-9.svg';
+import UserImg1 from '/images/user-1.png';
+import UserImg2 from '/images/user-2.png';
+import UserImg3 from '/images/user-3.png';
+
+import Styles from "./testimonial-section.module.scss";
 
 interface Testimonial {
   category: string;
@@ -156,7 +159,7 @@ const TestimonialSection: React.FC = () => {
 
   return (
     <section className={Styles.testimonialSection} data-theme="light">
-      <Container maxWidth="lg">
+      <AgsContainer>
         <Box className={Styles.titleWrapper}>
           <Box className={Styles.titleBlock}>
             <Typography variant="h2" className={Styles.testimonialTitle}>
@@ -229,16 +232,16 @@ const TestimonialSection: React.FC = () => {
                   className={Styles.toggleCards}
                 >
                   {showAll ? (
-                    `+${remainingCount}`
-                  ) : (
                     <img alt="collapse" src={CollapseIcon} />
+                  ) : (
+                    `+${remainingCount}`
                   )}
                 </Button>
               </Box>
             )}
           </Box>
         </Box>
-      </Container>
+      </AgsContainer>
     </section>
   );
 };

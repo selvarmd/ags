@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Box } from "@mui/material";
 import { useInView } from "react-intersection-observer";
-import Styles from "./result-section.module.scss";
+import { Typography, Box } from "@mui/material";
+
 import AgsContainer from "@/components/Container/Container";
 import LogoCarousel from "./logo-carousel";
 
@@ -10,6 +10,8 @@ import Logo2 from "/images/logo-2.svg";
 import Logo3 from "/images/logo-3.svg";
 import Logo4 from "/images/logo-4.svg";
 import Logo5 from "/images/logo-5.svg";
+
+import Styles from "./result-section.module.scss";
 
 interface Stat {
   number: string;

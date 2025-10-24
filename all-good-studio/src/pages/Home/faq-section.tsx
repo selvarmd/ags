@@ -6,9 +6,10 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Styles from "./faq-section.module.scss";
+
 import AgsContainer from "@/components/Container/Container";
+
+import Styles from "./faq-section.module.scss";
 
 const faqData = [
   {
@@ -18,7 +19,8 @@ const faqData = [
   },
   {
     question: "What if I don't like the design?",
-    answer: "We collaborate closely with you and refine until you're satisfied.",
+    answer:
+      "We collaborate closely with you and refine until you're satisfied.",
   },
   {
     question: "I already have Figma—can you develop it?",
@@ -43,20 +45,17 @@ const faqData = [
 function FaqSection() {
   const [expanded, setExpanded] = useState<number | false>(false);
 
-  const handleChange = (panel: number) => (
-    event: React.SyntheticEvent,
-    isExpanded: boolean
-  ) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+  const handleChange =
+    (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
 
   return (
     <Box component="section" className={Styles.faqSection} data-theme="light">
       <AgsContainer>
-        {/* Title */}
         <Box className={Styles.titleBlock}>
           <Typography variant="h2" className={Styles.title}>
-              <div>Have more questions?</div>
+            <div>Have more questions?</div>
           </Typography>
           <Box className={Styles.subtitleWrapper}>
             <Typography variant="body1" className={Styles.subtitle}>
@@ -65,10 +64,10 @@ function FaqSection() {
           </Box>
         </Box>
 
-        {/* FAQ Accordion */}
         <Box className={Styles.accordionWrapper}>
           {faqData.map((item, index) => (
-            <Accordion  key={index}
+            <Accordion
+              key={index}
               expanded={expanded === index}
               onChange={handleChange(index)}
               className={Styles.accordionItem}
@@ -77,16 +76,17 @@ function FaqSection() {
                 expandIcon={
                   <span
                     className={`${Styles.expandIcon} ${
-                      expanded === index ? Styles.expanded : ''
+                      expanded === index ? Styles.expanded : ""
                     }`}
                   />
-                  // <span className={`${Styles.customIcon} ${ expanded === index ? Styles.expanded : Styles.collapsed}`}></span>
                 }
                 aria-controls={`faq-content-${index}`}
                 id={`faq-header-${index}`}
                 className={Styles.accordionHeader}
               >
-                <Typography className={Styles.accordionQuestion}>{item.question}</Typography>
+                <Typography className={Styles.accordionQuestion}>
+                  {item.question}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={Styles.accordionBody}>
                 <Typography>{item.answer}</Typography>

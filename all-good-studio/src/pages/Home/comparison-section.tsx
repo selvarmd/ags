@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+
 import AgsContainer from "@/components/Container/Container";
 
 import Styles from './comparison-section.module.scss';
@@ -17,7 +18,6 @@ function ComparisonSection() {
   return (
     <Box component="section" id="connect" data-theme="dark" className={Styles.comparisonSection}>
       <AgsContainer>
-        {/* Title Section */}
         <Box className={Styles.titleBlock}>
           <Typography variant="h2" className={Styles.title}>
               <Box>Why choose us over a</Box>
@@ -30,7 +30,6 @@ function ComparisonSection() {
           </Box>
         </Box>
 
-        {/* Comparison Table */}
         <Box className={Styles.comparisonBlock}>
           <Box className={Styles.comparisonTable}>
             <Box className={`${Styles.comparisonRow} ${Styles.comparisonHeader}`}>

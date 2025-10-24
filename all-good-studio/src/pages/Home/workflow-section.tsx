@@ -1,12 +1,14 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import Styles from "./workflow-section.module.scss";
+
 import AgsContainer from "@/components/Container/Container";
 
 import Flow1 from '/images/flow-1.svg';
 import Flow2 from '/images/flow-2.svg';
 import Flow3 from '/images/flow-3.svg';
 import Flow4 from '/images/flow-4.svg';
+
+import Styles from "./workflow-section.module.scss";
 
 interface WorkflowStep {
   step: string;

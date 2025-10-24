@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import Styles from "./logo-carousel.module.scss";
 import { Box } from "@mui/material";
+
+import Styles from "./logo-carousel.module.scss";
 
 interface LogoCarouselProps {
   logos: string[];

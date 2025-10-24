@@ -14,11 +14,11 @@
   
   &.scrolled {
     background-color: var(--light);
-    box-shadow: 0 0 2px 0 rgba(175, 175, 175, 0.5) !important;
+    box-shadow: 0 0 2px 0 var(--light-shadow) !important;
   }
 
   &.lightHeader {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, var(--light-transparent-100) 0%, var(--light-transparent-0) 100%);
     color: var(--dark) !important;
 
     .navDesktop {
@@ -29,7 +29,7 @@
   }
 
   &.darkHeader {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(180deg, var(--dark-transparent-100) 0%, var(--dark-transparent-0) 100%);
     color: var(--light) !important;
 
     .navDesktop {
