@@ -166,6 +166,10 @@ const Portfolio: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  useEffect(() => {
+    document.title = "Portfolio | All Good Studio";
+  }, []);
+
   const filteredData =
     selectedFilter === "all"
       ? portfolioData

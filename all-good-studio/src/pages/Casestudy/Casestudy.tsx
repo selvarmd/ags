@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
@@ -28,6 +28,10 @@ import User2 from "/images/case-studies/advance-cm/user-2.png";
 import Styles from "./casestudy.module.scss";
 
 const CaseStudy: React.FC = () => {
+  useEffect(() => {
+    document.title = "Case Study | All Good Studio";
+  }, []);
+
   return (
     <Box component="section" className={Styles.caseStudyWrapper}>
       <AgsContainer>

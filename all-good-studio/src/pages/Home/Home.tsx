@@ -17,6 +17,10 @@ export default function Home() {
   const location = useLocation();
   const { onThemeChange } = useOutletContext<ContextType>();
 
+  useEffect(() => {
+    document.title = "All Good Studio";
+  }, []);
+
   // 🧭 Scroll to hash section on page load or when hash changes (your existing logic)
   useEffect(() => {
     if (location.hash) {
