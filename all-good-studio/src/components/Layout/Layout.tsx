@@ -8,26 +8,47 @@ function Layout() {
   const [appTheme, setAppTheme] = useState<"light" | "dark">("light");
   const [loading, setLoading] = useState(true); // page loader state
 
-  // Only manage theme locally for the Header
-  const handleThemeChange = (theme: "light" | "dark") => {
-    setAppTheme(theme);
-  };
+  const handleThemeChange = (theme: "light" | "dark") => setAppTheme(theme);
 
-  // Simulate page load (or replace with actual data loading)
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
+    const waitForAssets = async () => {
+      // 1. Wait for window load
+      if (document.readyState !== "complete") {
+        await new Promise<void>((resolve) => {
+          window.addEventListener("load", () => resolve(), { once: true });
+        });
+      }
+
+      // 2. Wait for all fonts
+      if (document.fonts) {
+        await document.fonts.ready;
+      }
+
+      // 3. Wait for all images
+      const images = Array.from(document.images);
+      await Promise.all(
+        images.map(
+          (img) =>
+            new Promise<void>((resolve) => {
+              if (img.complete) resolve();
+              else img.addEventListener("load", () => resolve());
+            })
+        )
+      );
+
+      setLoading(false);
+    };
+
+    waitForAssets();
   }, []);
 
   if (loading) {
-    return <Loader mode="page" />; // show full-page loader
+    return <Loader mode="page" />; // full-page loader
   }
 
   return (
     <>
-      {/* Header receives the current theme */}
       <Header theme={appTheme} />
-      {/* Main content */}
       <main>
         <Outlet context={{ onThemeChange: handleThemeChange }} />
       </main>

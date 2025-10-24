@@ -3,7 +3,9 @@
 
 .portfolioWrapper {
   padding: 100px 0;
-
+  background: var(--light) url("/images/background/portfolio-page-bg.png") no-repeat fixed top right;
+  background-size: 100%;
+  
   .titleWrapper {
     display: flex;
     flex-wrap: wrap;

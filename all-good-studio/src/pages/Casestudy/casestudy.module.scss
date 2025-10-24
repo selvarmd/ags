@@ -3,7 +3,8 @@
 
 .caseStudyWrapper {
   padding: 80px 0;
-  background-color: var(--light);
+  background: var(--light) url("/images/background/portfolio-page-bg.png") no-repeat fixed top right;
+  background-size: 100%;
 
   .sectionWrapper {
     padding-top: 50px;

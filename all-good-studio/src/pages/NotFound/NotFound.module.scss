@@ -1,0 +1,21 @@
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
+
+.notFoundWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  gap: 16px;
+
+  h2 {
+    font-size: 6rem;
+    color: #1976d2;
+  }
+
+  h5 {
+    font-weight: 500;
+  }
+}
