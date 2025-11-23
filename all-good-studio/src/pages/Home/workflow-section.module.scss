@@ -1,9 +1,10 @@
-@use '@/styles/abstracts/mixins';
-@use '@/styles/abstracts/variables';
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
 
 .workflowSection {
   position: relative;
-  background: var(--black-150) url("/images/background/workflow-bg.svg") no-repeat fixed right center;
+  background: var(--black-150) url("/images/background/workflow-bg.svg")
+    no-repeat fixed right center;
   background-size: cover;
   padding: 10% 0;
 
@@ -69,7 +70,7 @@
   .workflowCards {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 10px 0;
     margin-top: 30px;
 
     @media (min-width: 576px) {
@@ -82,12 +83,26 @@
     }
 
     .workflowCard {
-      background: #ffffff;
-      padding: 30px 20px;
-      transition: all 0.5s ease-in-out !important;
+      padding: 20px;
+      min-height: 480px;
 
-      &:hover {
-        transform: translateY(-10px) !important;
+      @media (min-width: 768px) {
+        min-height: 510px;
+      }
+
+      @media (min-width: 992px) {
+        min-height: 475px;
+      }
+
+      @media (min-width: 1200px) {
+        min-height: 610px;
+      }
+
+      .workCardContent {
+        padding: 30px 20px;
+        border-radius: 20px;
+        background-color: var(--light);
+        height: 100%;
       }
 
       .step {
@@ -131,6 +146,7 @@
         font-size: 16px;
         line-height: 24px;
         font-weight: 500;
+        opacity: 0.5;
 
         @media (min-width: 1200px) {
           font-size: 20px;

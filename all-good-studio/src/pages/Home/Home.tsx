@@ -8,6 +8,7 @@ import WorkflowSection from "./workflow-section";
 import TestimonialSection from "./testimonial-section";
 import ComparisonSection from "./comparison-section";
 import FaqSection from "./faq-section";
+import ProjectSection from "./project-section";
 
 const HEADER_HEIGHT = 80; // same as your fixed header
 
@@ -60,6 +61,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <ProjectSection />
       <ServiceSection />
       <ResultsSection />
       <WorkflowSection />

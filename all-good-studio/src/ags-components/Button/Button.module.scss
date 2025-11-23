@@ -1,5 +1,5 @@
-@use '@/styles/abstracts/mixins';
-@use '@/styles/abstracts/variables';
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
 
 .btnWrapper {
   display: flex;
@@ -17,7 +17,12 @@
     font-weight: 500;
     line-height: 1;
     font-family: var(--font);
+    box-shadow: none;
     transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: none;
+    }
 
     &.contained {
       display: inline-block;
