@@ -1,0 +1,232 @@
+.portfolio-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.portfolio-card {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 120px);
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: auto;
+
+  &:nth-child(1) {
+    width: calc(100% - 160px);
+  }
+
+  &:nth-child(2) {
+    width: calc(100% - 80px);
+  }
+}
+
+.portfolio-card-inner {
+  width: 100%;
+  //   max-width: 1200px;
+  border-radius: 16px;
+  overflow: hidden;
+  // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.portfolio-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 20px;
+  color: #ffffff;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+  &.dark {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .portfolio-logo {
+    max-width: 120px;
+
+    img {
+      object-fit: initial;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  .portfolio-info {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 10px;
+    background-color: rgba(226, 226, 226, 0.1);
+    border-radius: 8px;
+
+    &.dark {
+      color: #000000;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.portfolio-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-image-wrapper {
+  width: 100%;
+  min-height: 450px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.category-wrapper {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  color: #ffffff;
+  min-height: 450px;
+  height: 100%;
+
+  .title {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    cursor: auto !important;
+
+    @media (min-width: 992px) {
+      font-size: 40px;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 45px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 1400px) {
+      font-size: 60px;
+      margin-bottom: 60px;
+    }
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 40px auto;
+    cursor: auto !important;
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(4, 1fr);
+      margin: 20px auto;
+    }
+
+    @media (min-width: 992px) {
+      margin: 30px auto;
+    }
+
+    li {
+      padding: 5px 10px;
+      border-left: 2px solid #5e5b5b;
+      cursor: auto !important;
+
+      @media (min-width: 1400px) {
+        padding: 5px 25px;
+      }
+
+      &:first-child {
+        @media (min-width: 576px) {
+          border-left: 0 !important;
+        }
+      }
+
+      &:nth-child(odd) {
+        border-left: 0;
+
+        @media (min-width: 576px) {
+          border-left: 2px solid #5e5b5b;
+        }
+      }
+
+      a {
+        font-size: 12px;
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+        opacity: 0.5;
+        transition: opacity 0.3s ease-in-out;
+
+        @media (min-width: 768px) {
+          font-size: 16px;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .btn-wrapper {
+    @media (min-width: 576px) {
+      margin-top: 10px;
+    }
+
+    @media (min-width: 768px) {
+      margin-top: 20px;
+    }
+
+    @media (min-width: 1200px) {
+      margin-top: 30px;
+    }
+
+    @media (min-width: 1400px) {
+      margin-top: 60px;
+    }
+
+    .view-all-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--light);
+      border-color: var(--light);
+      background-color: var(--dark);
+
+      &:before {
+        background: var(--light);
+      }
+
+      &:hover {
+        color: var(--dark);
+      }
+    }
+  }
+}

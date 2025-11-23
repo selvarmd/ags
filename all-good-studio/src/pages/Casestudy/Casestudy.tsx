@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
-import AgsContainer from "@/components/Container/Container";
-import CustomButton from "@/components/Button/Button";
+import AgsContainer from "@/ags-components/Container/Container";
+import CustomButton from "@/ags-components/Button/Button";
 import Shutter from "./shutter";
 
 import DiscoveryImg from "/images/case-studies/advance-cm/research-discovery.png";

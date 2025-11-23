@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
+import TiltedCard from "@/components/TiltedCard.jsx";
 
-import AgsContainer from "@/components/Container/Container";
+import AgsContainer from "@/ags-components/Container/Container";
 
-import CollapseIcon from '/images/icons/nav-arrow-up.svg';
-import TestiImg1 from '/images/testi-1.svg';
-import TestiImg2 from '/images/testi-2.svg';
-import TestiImg3 from '/images/testi-3.svg';
-import TestiImg4 from '/images/testi-4.svg';
-import TestiImg5 from '/images/testi-5.svg';
-import TestiImg6 from '/images/testi-6.svg';
-import TestiImg7 from '/images/testi-7.svg';
-import TestiImg8 from '/images/testi-8.svg';
-import TestiImg9 from '/images/testi-9.svg';
-import UserImg1 from '/images/user-1.png';
-import UserImg2 from '/images/user-2.png';
-import UserImg3 from '/images/user-3.png';
+import CollapseIcon from "/images/icons/nav-arrow-up.svg";
+import TestiImg1 from "/images/testi-1.svg";
+import TestiImg2 from "/images/testi-2.svg";
+import TestiImg3 from "/images/testi-3.svg";
+import TestiImg4 from "/images/testi-4.svg";
+import TestiImg5 from "/images/testi-5.svg";
+import TestiImg6 from "/images/testi-6.svg";
+import TestiImg7 from "/images/testi-7.svg";
+import TestiImg8 from "/images/testi-8.svg";
+import TestiImg9 from "/images/testi-9.svg";
+import UserImg1 from "/images/user-1.png";
+import UserImg2 from "/images/user-2.png";
+import UserImg3 from "/images/user-3.png";
 
 import Styles from "./testimonial-section.module.scss";
 
@@ -153,9 +154,8 @@ const TestimonialSection: React.FC = () => {
     ? filteredTestimonials
     : filteredTestimonials.slice(0, 3);
 
-  const totalCards = testimonials.length;            // total number of testimonial cards
-  const initiallyVisible = testimonials.length - 3;
-  const remainingCount = totalCards - initiallyVisible;
+  const totalFiltered = filteredTestimonials.length;
+  const remainingCount = Math.max(totalFiltered - 3, 0);
 
   return (
     <section className={Styles.testimonialSection} data-theme="light">
@@ -163,12 +163,14 @@ const TestimonialSection: React.FC = () => {
         <Box className={Styles.titleWrapper}>
           <Box className={Styles.titleBlock}>
             <Typography variant="h2" className={Styles.testimonialTitle}>
-                <Box>Real stories.</Box>
-                <Box>exceptional results.</Box>
+              <Box>Real stories.</Box>
+              <Box>exceptional results.</Box>
             </Typography>
             <Box className={Styles.subtitle}>
-                <Box>We design, build & ship websites and apps that shape the</Box>
-                <Box>future of your business.</Box>
+              <Box>
+                We design, build & ship websites and apps that shape the
+              </Box>
+              <Box>future of your business.</Box>
             </Box>
           </Box>
 
@@ -197,29 +199,53 @@ const TestimonialSection: React.FC = () => {
               {displayedTestimonials.map((testi, idx) => (
                 <Box
                   key={idx}
-                  className={`${Styles.testiCard} ${
+                  className={`testi-card ${Styles.testiCard} ${
                     testi.category !== "all" ? "more" : ""
                   }`}
                   data-category={testi.category}
                 >
-                  <span className={Styles.tag}>{testi.tag}</span>
-                  <Box className={Styles.authorName}>
-                    <Box className={Styles.authorImg}>
-                      <img src={testi.authorImg} alt={testi.authorName} />
-                    </Box>
-                    <Typography variant="h3">{testi.authorName}</Typography>
-                  </Box>
-                  <Typography variant="h4">{testi.title}</Typography>
-                  <Typography variant="body2">{testi.description}</Typography>
-                  <Box className={Styles.testiImg}>
-                    <img src={testi.testimonialImg} alt={testi.title} />
-                  </Box>
-                  <Box className={Styles.detWrapper}>
-                    <Box className={Styles.percentTag}>{testi.percentTag}</Box>
-                    <Button href={testi.readLink} className={Styles.readLink}>
-                      Read the case
-                    </Button>
-                  </Box>
+                  <TiltedCard
+                    containerHeight="100%"
+                    containerWidth="100%"
+                    imageHeight="100%"
+                    imageWidth="100%"
+                    rotateAmplitude={12}
+                    scaleOnHover={1}
+                    showMobileWarning={false}
+                    showTooltip={false}
+                    displayOverlayContent={true}
+                    overlayContent={
+                      <Box className={Styles.testiCardContent}>
+                        <span className={Styles.tag}>{testi.tag}</span>
+                        <Box className={Styles.authorName}>
+                          <Box className={Styles.authorImg}>
+                            <img src={testi.authorImg} alt={testi.authorName} />
+                          </Box>
+                          <Typography variant="h3">
+                            {testi.authorName}
+                          </Typography>
+                        </Box>
+                        <Typography variant="h4">{testi.title}</Typography>
+                        <Typography variant="body2">
+                          {testi.description}
+                        </Typography>
+                        <Box className={Styles.testiImg}>
+                          <img src={testi.testimonialImg} alt={testi.title} />
+                        </Box>
+                        <Box className={Styles.detWrapper}>
+                          <Box className={Styles.percentTag}>
+                            {testi.percentTag}
+                          </Box>
+                          <Button
+                            href={testi.readLink}
+                            className={Styles.readLink}
+                          >
+                            Read the case
+                          </Button>
+                        </Box>
+                      </Box>
+                    }
+                  />
                 </Box>
               ))}
             </Box>

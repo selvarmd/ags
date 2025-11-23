@@ -1,10 +1,9 @@
-@use '@/styles/abstracts/mixins';
-@use '@/styles/abstracts/variables';
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
 
 .siteFooter {
-  background: var(--dark) url("/images/background/footer-bg.png") no-repeat scroll
-    top right;
-  background-size: cover;
+  background: var(--dark);
+  overflow-x: hidden;
 
   .footerTop {
     color: var(--light);
@@ -14,6 +13,8 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 24px;
+    position: relative;
+    z-index: 1;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -31,7 +32,7 @@
       }
 
       @media (min-width: 1200px) {
-        width: 44%;
+        width: 50%;
       }
 
       @media (min-width: 1400px) {
@@ -81,18 +82,12 @@
       .footerSubtitle {
         font-size: 16px;
 
-        @media (min-width: 768px) {
-          width: 65%;
-        }
-
         @media (min-width: 992px) {
           font-size: 18px;
-          width: 60%;
         }
 
         @media (min-width: 1400px) {
           font-size: 24px;
-          width: 65%;
         }
       }
     }
@@ -100,12 +95,17 @@
     .footerCta {
       .footerCtaBtn {
         display: flex;
+
+        &:hover {
+          border-color: var(--light);
+        }
       }
     }
   }
 
   .footerBottom {
     position: relative;
+    z-index: 1;
     padding: 7% 0;
 
     @media (min-width: 1400px) {
@@ -123,8 +123,8 @@
       border-top-right-radius: 130px;
 
       @media (min-width: 768px) {
-        background: var(--color-primary) url("/images/background/footer-bg-img.svg")
-          no-repeat left bottom;
+        background: var(--color-primary)
+          url("/images/background/footer-bg-img.svg") no-repeat left bottom;
         background-size: auto 40%;
         border-top-right-radius: 200px;
       }

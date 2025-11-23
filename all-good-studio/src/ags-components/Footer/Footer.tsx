@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import AgsContainer from "../Container/Container";
 import CustomButton from "../Button/Button";
+import Aurora from "@/components/Aurora";
 
 import LogoIcon from "/images/logo-icon.svg";
 
@@ -9,7 +10,16 @@ import Styles from "./Footer.module.scss";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={Styles.siteFooter} data-theme="dark">
+    <footer
+      className={`footer-animate-wrapper ${Styles.siteFooter}`}
+      data-theme="dark"
+    >
+      <Aurora
+        colorStops={["#7cff67", "#b19eef", "#5227ff"]}
+        blend={0.5}
+        amplitude={1.0}
+        speed={0.5}
+      />
       <AgsContainer>
         <Box className={Styles.footerTop}>
           <Box className={Styles.titleBlock}>
@@ -32,10 +42,18 @@ const Footer: React.FC = () => {
               target="_blank"
               className={Styles.footerCtaBtn}
               endIcon={
-                <svg width="45" height="26" viewBox="0 0 45 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="45"
+                  height="26"
+                  viewBox="0 0 45 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M0 13H44C32.3592 14.1892 32.1243 24.7405 32.0388 25M31.932 1C32.0175 1.25946 32.2524 11.8108 43.8932 13"
-                    stroke="currentColor" stroke-width="1.5" />
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
                 </svg>
               }
             >
@@ -55,7 +73,10 @@ const Footer: React.FC = () => {
 
             <Box className={Styles.footerLeft}>
               <p className={Styles.label}>Prefer email?</p>
-              <a href="mailto:hellow@allgoodstudio.com" className={Styles.email}>
+              <a
+                href="mailto:hellow@allgoodstudio.com"
+                className={Styles.email}
+              >
                 hellow@allgoodstudio.com
               </a>
               <ul className={Styles.social}>

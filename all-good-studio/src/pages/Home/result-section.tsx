@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Typography, Box } from "@mui/material";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import { cn } from "@/lib/utils";
 
-import AgsContainer from "@/components/Container/Container";
+import AgsContainer from "@/ags-components/Container/Container";
 import LogoCarousel from "./logo-carousel";
 
 import Logo1 from "/images/logo-1.svg";
@@ -12,6 +14,38 @@ import Logo4 from "/images/logo-4.svg";
 import Logo5 from "/images/logo-5.svg";
 
 import Styles from "./result-section.module.scss";
+import { LogoCloud } from "@/components/logo-cloud-3";
+
+const logos = [
+  {
+    src: Logo1,
+    alt: "Logo",
+  },
+  {
+    src: Logo2,
+    alt: "Logo",
+  },
+  {
+    src: Logo3,
+    alt: "Logo",
+  },
+  {
+    src: Logo4,
+    alt: "Logo",
+  },
+  {
+    src: Logo5,
+    alt: "Logo",
+  },
+  {
+    src: Logo1,
+    alt: "Logo",
+  },
+  {
+    src: Logo2,
+    alt: "Logo",
+  },
+];
 
 interface Stat {
   number: string;
@@ -26,7 +60,10 @@ const stats: Stat[] = [
   { number: "99%", label: "on-time delivery (last 12 months)" },
 ];
 
-const RollingDigit: React.FC<{ digit: string; trigger: boolean }> = ({ digit, trigger }) => {
+const RollingDigit: React.FC<{ digit: string; trigger: boolean }> = ({
+  digit,
+  trigger,
+}) => {
   const [rolled, setRolled] = useState(false);
 
   useEffect(() => {
@@ -48,7 +85,10 @@ const RollingDigit: React.FC<{ digit: string; trigger: boolean }> = ({ digit, tr
   );
 };
 
-const OdometerNumber: React.FC<{ number: string; animate: boolean }> = ({ number, animate }) => {
+const OdometerNumber: React.FC<{ number: string; animate: boolean }> = ({
+  number,
+  animate,
+}) => {
   const digits = number.replace(/\D/g, "").split("");
   const suffix = number.replace(/[0-9]/g, "");
   return (
@@ -65,10 +105,20 @@ const ResultsSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <Box component="section" className={Styles.resultSection} id="process" data-theme="light" ref={ref}>
+    <Box
+      component="section"
+      className={Styles.resultSection}
+      id="process"
+      data-theme="light"
+      ref={ref}
+    >
       <AgsContainer>
         <Box className={Styles.titleBlock}>
-          <Typography variant="h2" component="h2" className={Styles.resultTitle}>
+          <Typography
+            variant="h2"
+            component="h2"
+            className={Styles.resultTitle}
+          >
             <Box>Results that speak</Box>
             <Box>for themselves.</Box>
           </Typography>
@@ -87,23 +137,14 @@ const ResultsSection: React.FC = () => {
           ))}
         </Box>
 
-        <LogoCarousel
-          logos={[
-            Logo1,
-            Logo2,
-            Logo3,
-            Logo4,
-            Logo5,
-            Logo1,
-            Logo2,
-            Logo3,
-          ]}
+        {/* <LogoCarousel
+          logos={[Logo1, Logo2, Logo3, Logo4, Logo5, Logo1, Logo2, Logo3]}
           visibleCount={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}
           speed={0.6}
           delay={1500}
           className={Styles.logoCarousel}
-        />
-
+        /> */}
+        <LogoCloud logos={logos} className="logo-cloud-wrapper" />
       </AgsContainer>
     </Box>
   );

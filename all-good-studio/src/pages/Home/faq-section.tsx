@@ -7,7 +7,7 @@ import {
   AccordionDetails,
 } from "@mui/material";
 
-import AgsContainer from "@/components/Container/Container";
+import AgsContainer from "@/ags-components/Container/Container";
 
 import Styles from "./faq-section.module.scss";
 

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Box, Button, Grid, Typography } from "@mui/material";
 
-import AgsContainer from "@/components/Container/Container";
-
+import AgsContainer from "@/ags-components/Container/Container";
 import TestiImg1 from "/images/testi-1.svg";
 import TestiImg2 from "/images/testi-2.svg";
 import TestiImg3 from "/images/testi-3.svg";

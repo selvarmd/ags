@@ -1,9 +1,10 @@
-@use '@/styles/abstracts/mixins';
-@use '@/styles/abstracts/variables';
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
 
 .serviceSection {
   color: var(--dark);
-  background: var(--black-150) url("/images/background/service-bg.svg") no-repeat fixed right top;
+  background: var(--black-150) url("/images/background/service-bg.svg")
+    no-repeat fixed right top;
   background-size: cover;
   padding: 10% 0;
 
@@ -94,7 +95,7 @@
     }
   }
 
-  .serviceGridWrapper{ 
+  .serviceGridWrapper {
     @media (min-width: 768px) {
       padding-left: 3%;
     }
@@ -117,48 +118,59 @@
 
     .services {
       gap: 24px;
-      margin: 24px 0;
+      margin: 60px 0;
       padding-left: 30px;
 
       @media (min-width: 576px) {
-        padding-left: calc((100vw - 540px) / 1.75);
+        padding-left: calc((100vw - 560px) / 1.75);
       }
       @media (min-width: 768px) {
-        padding-left: calc((100vw - 720px) / 1.75);
+        padding-left: calc((100vw - 740px) / 1.75);
       }
       @media (min-width: 992px) {
-        padding-left: calc((100vw - 960px) / 2);
+        padding-left: calc((100vw - 980px) / 2);
       }
       @media (min-width: 1200px) {
-        padding-left: calc((100vw - 1140px) / 2);
+        padding-left: calc((100vw - 1160px) / 2);
       }
       @media (min-width: 1400px) {
-        padding-left: calc((100vw - 1320px) / 2);
+        padding-left: calc((100vw - 1340px) / 2);
       }
       @media (min-width: 1600px) {
-        padding-left: calc((100vw - 1470px) / 2);
+        padding-left: calc((100vw - 1490px) / 2);
       }
 
       .serviceSlide {
         height: auto;
+        min-height: 600px;
         display: flex;
         border-radius: 20px;
+
+        @media (min-width: 768px) {
+          min-height: 650px;
+        }
       }
 
       .serviceCard {
-        background: var(--light);
-        border-radius: 20px;
-        width: 100%;
-        padding: 20px 20px 65px;
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        height: 100%;
-        gap: 20px;
-        position: relative;
+        .cardContent {
+          background: var(--light);
+          border-radius: 20px;
+          width: 100%;
+          padding: 20px 20px 65px;
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 auto;
+          height: 100%;
+          gap: 20px;
+          position: relative;
 
-        @media (min-width: 576px) {
-          padding: 30px 30px 85px;
+          @media (min-width: 576px) {
+            padding: 30px 30px 85px;
+          }
+
+          @media (min-width: 768px) {
+            min-height: 480px;
+          }
         }
 
         .icon {
@@ -250,7 +262,8 @@
             font-size: 16px;
             line-height: 20px;
             font-weight: 500;
-            background-color: var(--black-100);
+            background-color: var(--color-green-100);
+            color: var(--color-primary-100);
             padding: 10px 20px;
             border-radius: 50px;
 
@@ -264,11 +277,22 @@
     }
   }
 
-  .reqLinkWrapper {    
+  .reqLinkWrapper {
     display: flex;
-    
+
     .reqButton {
       display: flex;
+      color: var(--light);
+      background: var(--dark);
+
+      &:before {
+        background: var(--light);
+      }
+
+      &:hover {
+        color: var(--dark);
+        border-color: var(--light);
+      }
     }
   }
 }

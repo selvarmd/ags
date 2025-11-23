@@ -1,0 +1,56 @@
+.projectWrapperSection {
+  background: var(--dark) url("/images/background/portfolio-bg.svg") no-repeat
+    scroll right top;
+  background-size: cover;
+  padding: 10% 0 25%;
+
+  @media (min-width: 1600px) {
+    padding: 200px 0;
+  }
+}
+
+.projectSection {
+  margin-bottom: 80px;
+
+  .projectTitle {
+    font-size: 32px;
+    line-height: 1;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--light);
+
+    @media (min-width: 576px) {
+      font-size: 48px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 60px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 70px;
+    }
+
+    @media (min-width: 1600px) {
+      font-size: 80px;
+    }
+  }
+
+  .projectDescription {
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--light);
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+}
