@@ -34,18 +34,31 @@
   }
 
   .heroImg {
+    position: relative;
+    overflow: hidden; // ensures animation stays inside
+
     @media (min-width: 768px) {
       width: 34%;
       order: 2;
     }
 
-    img {
-      width: 70%;
-      margin: auto;
-      display: block;
+    .magicBotContainer {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      perspective: 800px; // enables 3D effect
 
-      @media (min-width: 768px) {
-        width: 100%;
+      .magicBot {
+        width: 260px;
+        animation: float3D 3s ease-in-out infinite,
+          drift 5s ease-in-out infinite, glowPulse 1s ease-in-out infinite;
+        transform-style: preserve-3d;
+
+        @media (min-width: 768px) {
+          width: 100%;
+        }
       }
     }
   }
@@ -195,5 +208,50 @@
         margin-top: 36px;
       }
     }
+  }
+}
+
+/* 3D bubble float */
+@keyframes float3D {
+  0% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotateX(8deg) rotateY(-6deg);
+  }
+  100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+/* angel/cupid gentle side drift */
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-15px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* magical glow pulse */
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 1px #f4dd98); /* soft light gold */
+  }
+  50% {
+    filter: drop-shadow(0 0 4px #00ffcc); /* strong golden shine */
+  }
+  100% {
+    filter: drop-shadow(0 0 1px #f8e1ab); /* warm rich gold */
   }
 }

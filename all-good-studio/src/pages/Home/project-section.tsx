@@ -1,3 +1,4 @@
+import useInView from "@/hooks/useInView/useInView";
 import { Link } from "react-router-dom";
 import Styles from "./project-section.module.scss";
 
@@ -11,9 +12,11 @@ import Portfolio2 from "/images/portfolio-2.png";
 import Portfolio3 from "/images/portfolio-3.png";
 import AgsContainer from "@/ags-components/Container/Container";
 
-import LiquidEther from "../../components/LiquidEther.jsx";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 function ProjectSection() {
+  const { ref: titleRef, isInView: showTitle } = useInView();
+
   const items = [
     {
       id: 1,
@@ -51,38 +54,25 @@ function ProjectSection() {
       data-theme="dark"
       style={{ position: "relative" }}
     >
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          top: 0,
-          left: 0,
-        }}
-      >
-        {/* <LiquidEther
-          colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        /> */}
-      </div>
       <AgsContainer>
-        {/* -------- Title Section -------- */}
         <div className={Styles.projectSection}>
           <div className={Styles.projectTitle}>
-            <div>Explore our work/*</div>
+            <div ref={titleRef}>
+              {showTitle && (
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                  }}
+                >
+                  Explore our work/*
+                </VerticalCutReveal>
+              )}
+            </div>
           </div>
 
           <div className={Styles.projectDescription}>

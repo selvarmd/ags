@@ -26,14 +26,15 @@ const HeroSection: React.FC = () => {
       <AgsContainer>
         <Box className={Styles.heroWrapper}>
           <Box className={Styles.heroImg}>
-            <img alt="Hero Banner" src={HeroImg} />
+            <Box className={Styles.magicBotContainer}>
+              <img
+                alt="Hero Banner"
+                src={HeroImg}
+                className={Styles.magicBot}
+              />
+            </Box>
           </Box>
           <Box className={Styles.heroContent}>
-            {/* <Typography component="h1" className={Styles.heroTitle}>
-              <Box className={Styles.heroTitleTop}>Launch your</Box>
-              <Box className={Styles.heroTitleMiddle}>next big idea—</Box>
-              <Box className={Styles.heroTitleBottom}>tomorrow.</Box>
-            </Typography> */}
             <div className={Styles.heroTitle}>
               <VerticalCutReveal
                 splitBy="characters"

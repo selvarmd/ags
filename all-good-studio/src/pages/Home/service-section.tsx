@@ -19,6 +19,8 @@ import TiltedCard from "@/components/TiltedCard.jsx";
 
 import Styles from "./service-section.module.scss";
 import { Style } from "@mui/icons-material";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import useInView from "@/hooks/useInView/useInView";
 
 interface Service {
   icon: string;
@@ -115,6 +117,7 @@ const services: Service[] = [
 const ServiceSection: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { ref: titleRef, isInView: showTitle } = useInView();
 
   // Scroll-triggered autoplay
   useEffect(() => {
@@ -162,11 +165,51 @@ const ServiceSection: React.FC = () => {
     <Box component="section" className={Styles.serviceSection}>
       <AgsContainer>
         <Box className={Styles.titleBlock}>
-          <h2>
-            <Box className={Styles.serviceTitleTop}>Rapid, premium digital</Box>
-            <Box className={Styles.serviceTitleMiddle}>solutions—expertly</Box>
-            <Box className={Styles.serviceTitleBottom}>delivered.</Box>
-          </h2>
+          <Typography variant="h2" ref={titleRef}>
+            {showTitle && (
+              <>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                  }}
+                >
+                  Rapid, premium digital
+                </VerticalCutReveal>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="last"
+                  reverse={true}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                    delay: 0.5,
+                  }}
+                >
+                  solutions—expertly
+                </VerticalCutReveal>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="center"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                    delay: 1.1,
+                  }}
+                >
+                  delivered.
+                </VerticalCutReveal>
+              </>
+            )}
+          </Typography>
           <Box className={Styles.serviceTitleDescriptionWrapper}>
             <Typography
               variant="body1"

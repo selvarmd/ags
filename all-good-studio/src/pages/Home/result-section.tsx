@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Typography, Box } from "@mui/material";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
-import { cn } from "@/lib/utils";
 
 import AgsContainer from "@/ags-components/Container/Container";
-import LogoCarousel from "./logo-carousel";
 
 import Logo1 from "/images/logo-1.svg";
 import Logo2 from "/images/logo-2.svg";
@@ -15,6 +12,7 @@ import Logo5 from "/images/logo-5.svg";
 
 import Styles from "./result-section.module.scss";
 import { LogoCloud } from "@/components/logo-cloud-3";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const logos = [
   {
@@ -103,6 +101,10 @@ const OdometerNumber: React.FC<{ number: string; animate: boolean }> = ({
 
 const ResultsSection: React.FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref: titleRef, inView: showTitle } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   return (
     <Box
@@ -118,9 +120,53 @@ const ResultsSection: React.FC = () => {
             variant="h2"
             component="h2"
             className={Styles.resultTitle}
+            ref={titleRef}
           >
-            <Box>Results that speak</Box>
-            <Box>for themselves.</Box>
+            {/* <Box>Results that speak</Box>
+            <Box>for themselves.</Box> */}
+            {showTitle && (
+              <>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                  }}
+                >
+                  Rapid, premium digital
+                </VerticalCutReveal>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="last"
+                  reverse={true}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                    delay: 0.5,
+                  }}
+                >
+                  solutions—expertly
+                </VerticalCutReveal>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="center"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                    delay: 1.1,
+                  }}
+                >
+                  delivered.
+                </VerticalCutReveal>
+              </>
+            )}
           </Typography>
         </Box>
 
@@ -137,13 +183,6 @@ const ResultsSection: React.FC = () => {
           ))}
         </Box>
 
-        {/* <LogoCarousel
-          logos={[Logo1, Logo2, Logo3, Logo4, Logo5, Logo1, Logo2, Logo3]}
-          visibleCount={{ xs: 2, sm: 3, md: 4, lg: 5, xl: 6 }}
-          speed={0.6}
-          delay={1500}
-          className={Styles.logoCarousel}
-        /> */}
         <LogoCloud logos={logos} className="logo-cloud-wrapper" />
       </AgsContainer>
     </Box>
