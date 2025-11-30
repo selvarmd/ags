@@ -6,17 +6,26 @@
 .portfolio-card {
   position: sticky;
   top: 90px;
-  height: calc(100vh - 120px);
+  // height: calc(100vh - 120px);
+  height: calc(100vh - 240px);
   opacity: 0.9;
   transition: transform 0.3s ease, opacity 0.3s ease;
   margin: auto;
 
   &:nth-child(1) {
-    width: calc(100% - 160px);
+    width: calc(100% - 40px);
+
+    @media (min-width: 768px) {
+      width: calc(100% - 160px);
+    }
   }
 
   &:nth-child(2) {
-    width: calc(100% - 80px);
+    width: calc(100% - 20px);
+
+    @media (min-width: 768px) {
+      width: calc(100% - 80px);
+    }
   }
 }
 
@@ -88,7 +97,7 @@
 
 .portfolio-image-wrapper {
   width: 100%;
-  min-height: 450px;
+  // min-height: 450px;
   height: 100%;
   overflow: hidden;
 }
@@ -111,7 +120,7 @@
   background-color: #1f1f1f;
   border-radius: 10px;
   color: #ffffff;
-  min-height: 450px;
+  // min-height: 450px;
   height: 100%;
 
   .title {

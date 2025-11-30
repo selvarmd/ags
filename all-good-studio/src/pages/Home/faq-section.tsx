@@ -10,6 +10,8 @@ import {
 import AgsContainer from "@/ags-components/Container/Container";
 
 import Styles from "./faq-section.module.scss";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import useInView from "@/hooks/useInView/useInView";
 
 const faqData = [
   {
@@ -44,6 +46,7 @@ const faqData = [
 
 function FaqSection() {
   const [expanded, setExpanded] = useState<number | false>(false);
+  const { ref: titleRef, isInView: showTitle } = useInView();
 
   const handleChange =
     (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -54,8 +57,21 @@ function FaqSection() {
     <Box component="section" className={Styles.faqSection} data-theme="light">
       <AgsContainer>
         <Box className={Styles.titleBlock}>
-          <Typography variant="h2" className={Styles.title}>
-            <div>Have more questions?</div>
+          <Typography variant="h2" className={Styles.title} ref={titleRef}>
+            {showTitle && (
+              <VerticalCutReveal
+                splitBy="characters"
+                staggerDuration={0.025}
+                staggerFrom="first"
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 21,
+                }}
+              >
+                Have more questions?
+              </VerticalCutReveal>
+            )}
           </Typography>
           <Box className={Styles.subtitleWrapper}>
             <Typography variant="body1" className={Styles.subtitle}>

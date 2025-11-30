@@ -11,6 +11,8 @@ import Flow4 from "/images/flow-4.svg";
 import TiltedCard from "@/components/TiltedCard.jsx";
 
 import Styles from "./workflow-section.module.scss";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import useInView from "@/hooks/useInView/useInView";
 
 interface WorkflowStep {
   step: string;
@@ -51,6 +53,8 @@ const workflowSteps: WorkflowStep[] = [
 ];
 
 const WorkflowSection: React.FC = () => {
+  const { ref: titleRef, isInView: showTitle } = useInView();
+
   return (
     <Box
       component="section"
@@ -64,9 +68,38 @@ const WorkflowSection: React.FC = () => {
             variant="h2"
             component="h2"
             className={Styles.workflowTitle}
+            ref={titleRef}
           >
-            <Box>How we deliver premium</Box>
-            <Box>quality at warp speed.</Box>
+            {showTitle && (
+              <>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                  }}
+                >
+                  How we deliver premium
+                </VerticalCutReveal>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="last"
+                  reverse={true}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                    delay: 0.5,
+                  }}
+                >
+                  quality at warp speed.
+                </VerticalCutReveal>
+              </>
+            )}
           </Typography>
           <Box className={Styles.subtitle}>
             <Typography component="p" className={Styles.workflowSubtitle}>

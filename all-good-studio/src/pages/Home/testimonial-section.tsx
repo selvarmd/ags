@@ -19,6 +19,8 @@ import UserImg2 from "/images/user-2.png";
 import UserImg3 from "/images/user-3.png";
 
 import Styles from "./testimonial-section.module.scss";
+import useInView from "@/hooks/useInView/useInView";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 interface Testimonial {
   category: string;
@@ -156,15 +158,63 @@ const TestimonialSection: React.FC = () => {
 
   const totalFiltered = filteredTestimonials.length;
   const remainingCount = Math.max(totalFiltered - 3, 0);
+  const { ref: titleRef, isInView: showTitle } = useInView();
 
   return (
     <section className={Styles.testimonialSection} data-theme="light">
       <AgsContainer>
         <Box className={Styles.titleWrapper}>
           <Box className={Styles.titleBlock}>
-            <Typography variant="h2" className={Styles.testimonialTitle}>
-              <Box>Real stories.</Box>
-              <Box>exceptional results.</Box>
+            <Typography
+              variant="h2"
+              className={Styles.testimonialTitle}
+              ref={titleRef}
+            >
+              {/* <Box>Real stories.</Box>
+              <Box>exceptional results.</Box> */}
+              {showTitle && (
+                <>
+                  <VerticalCutReveal
+                    splitBy="characters"
+                    staggerDuration={0.025}
+                    staggerFrom="first"
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 21,
+                    }}
+                  >
+                    Rapid, premium digital
+                  </VerticalCutReveal>
+                  <VerticalCutReveal
+                    splitBy="characters"
+                    staggerDuration={0.025}
+                    staggerFrom="last"
+                    reverse={true}
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 21,
+                      delay: 0.5,
+                    }}
+                  >
+                    solutions—expertly
+                  </VerticalCutReveal>
+                  <VerticalCutReveal
+                    splitBy="characters"
+                    staggerDuration={0.025}
+                    staggerFrom="center"
+                    transition={{
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 21,
+                      delay: 1.1,
+                    }}
+                  >
+                    delivered.
+                  </VerticalCutReveal>
+                </>
+              )}
             </Typography>
             <Box className={Styles.subtitle}>
               <Box>

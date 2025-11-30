@@ -4,6 +4,8 @@ import { Box, Typography } from "@mui/material";
 import AgsContainer from "@/ags-components/Container/Container";
 
 import Styles from "./comparison-section.module.scss";
+import useInView from "@/hooks/useInView/useInView";
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 
 const comparisonData = [
   { label: "Speed", us: "Up to 5 pages", agency: "4–12 weeks" },
@@ -23,6 +25,8 @@ const comparisonData = [
 ];
 
 function ComparisonSection() {
+  const { ref: titleRef, isInView: showTitle } = useInView();
+
   return (
     <Box
       component="section"
@@ -32,9 +36,37 @@ function ComparisonSection() {
     >
       <AgsContainer>
         <Box className={Styles.titleBlock}>
-          <Typography variant="h2" className={Styles.title}>
-            <Box>Why choose us over a</Box>
-            <Box>traditional agency?</Box>
+          <Typography variant="h2" className={Styles.title} ref={titleRef}>
+            {showTitle && (
+              <>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="first"
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                  }}
+                >
+                  Why choose us over a
+                </VerticalCutReveal>
+                <VerticalCutReveal
+                  splitBy="characters"
+                  staggerDuration={0.025}
+                  staggerFrom="last"
+                  reverse={true}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 21,
+                    delay: 0.5,
+                  }}
+                >
+                  traditional agency?
+                </VerticalCutReveal>
+              </>
+            )}
           </Typography>
           <Box className={Styles.subtitleWrapper}>
             <Typography variant="body1" className={Styles.subtitle}>
