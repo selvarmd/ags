@@ -1,5 +1,5 @@
-@use '@/styles/abstracts/mixins';
-@use '@/styles/abstracts/variables';
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
 
 .faqSection {
   background-color: #ffffff;
@@ -22,7 +22,7 @@
 
     .title {
       font-family: var(--font);
-      font-size: 32px;
+      font-size: 30px;
       line-height: 1;
       font-weight: 400;
       margin-bottom: 24px;
@@ -36,7 +36,7 @@
       }
 
       @media (min-width: 992px) {
-        font-size: 52px;
+        font-size: 50px;
       }
 
       @media (min-width: 1200px) {
@@ -44,7 +44,7 @@
       }
 
       @media (min-width: 1400px) {
-        font-size: 72px;
+        font-size: 70px;
       }
 
       @media (min-width: 1600px) {
@@ -76,7 +76,7 @@
       &:before {
         display: none;
       }
-      
+
       .accordionHeader {
         padding: 10px 20px 30px;
 

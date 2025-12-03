@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { Box, Typography, IconButton } from "@mui/material";
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 
 import AgsContainer from "@/ags-components/Container/Container";
 import CustomButton from "@/ags-components/Button/Button";
@@ -21,6 +22,7 @@ import Styles from "./service-section.module.scss";
 import { Style } from "@mui/icons-material";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import useInView from "@/hooks/useInView/useInView";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
 interface Service {
   icon: string;
@@ -118,6 +120,8 @@ const ServiceSection: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { ref: titleRef, isInView: showTitle } = useInView();
+  const [isEnd, setIsEnd] = useState(false);
+  const [isBeginning, setIsBeginning] = useState(true);
 
   // Scroll-triggered autoplay
   useEffect(() => {
@@ -222,28 +226,44 @@ const ServiceSection: React.FC = () => {
         </Box>
       </AgsContainer>
       <Box className={Styles.serviceGridWrapper}>
-        <Box className={Styles.services}>
+        <Box className={Styles.services} style={{ position: "relative" }}>
           <SwiperComponent
             onSwiper={(swiper: SwiperType) => {
               swiperRef.current = swiper;
+              setIsBeginning(swiper.isBeginning);
+              setIsEnd(swiper.isEnd);
 
-              // Enable pause on hover
-              if (swiper.autoplay) {
-                swiper.el.addEventListener("mouseenter", () =>
-                  swiper.autoplay?.stop()
-                );
-                swiper.el.addEventListener("mouseleave", () =>
-                  swiper.autoplay?.start()
-                );
-              }
+              // Cursor-based autoplay control
+              const handleMouseEnter = (e: MouseEvent) => {
+                const target = e.target as HTMLElement;
+                if (target.closest(".service-card-wrapper")) {
+                  swiper.autoplay?.stop();
+                }
+              };
 
-              // Initially stop autoplay until section appears
+              const handleMouseLeave = (e: MouseEvent) => {
+                const target = e.target as HTMLElement;
+                if (
+                  !target.closest(".service-card-wrapper") ||
+                  !swiper.el.contains(e.relatedTarget as Node)
+                ) {
+                  swiper.autoplay?.start();
+                }
+              };
+
+              swiper.el.addEventListener("mouseenter", handleMouseEnter);
+              swiper.el.addEventListener("mouseleave", handleMouseLeave);
               swiper.autoplay?.stop();
             }}
-            modules={[Autoplay]}
+            onSlideChange={(swiper) => {
+              // With loop enabled, arrows should always be active
+              setIsBeginning(false);
+              setIsEnd(false);
+            }}
+            modules={[Autoplay, Navigation]}
             spaceBetween={20}
             slidesPerView="auto"
-            loop={false}
+            loop={true}
             autoplay={{
               delay: 2000,
               disableOnInteraction: false,
@@ -302,6 +322,28 @@ const ServiceSection: React.FC = () => {
               </SwiperSlide>
             ))}
           </SwiperComponent>
+
+          {/* Navigation Arrows */}
+          {/* <IconButton
+            onClick={() => swiperRef.current?.slidePrev()}
+            style={{
+              position: 'absolute',
+              left: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: 10,
+              backgroundColor: 'rgba(255,255,255,0.9)'
+            }}
+          >
+            ←
+          </IconButton> */}
+
+          <IconButton
+            onClick={() => swiperRef.current?.slideNext()}
+            className={Styles.sliderIconBtn}
+          >
+            <ChevronRightRoundedIcon />
+          </IconButton>
         </Box>
       </Box>
       <AgsContainer>

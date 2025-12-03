@@ -1,9 +1,10 @@
-@use '@/styles/abstracts/mixins';
-@use '@/styles/abstracts/variables';
+@use "@/styles/abstracts/mixins";
+@use "@/styles/abstracts/variables";
 
 .comparisonSection {
   color: var(--light);
-  background: url("/images/background/comparision-bg.png") no-repeat fixed right center;
+  background: url("/images/background/comparision-bg.png") no-repeat fixed right
+    center;
   background-size: cover;
   padding: 10% 0;
 
@@ -20,7 +21,7 @@
 
     .title {
       font-family: var(--font);
-      font-size: 32px;
+      font-size: 30px;
       line-height: 1;
       font-weight: 400;
       margin-bottom: 24px;
@@ -34,7 +35,7 @@
       }
 
       @media (min-width: 992px) {
-        font-size: 52px;
+        font-size: 50px;
       }
 
       @media (min-width: 1200px) {
@@ -42,7 +43,7 @@
       }
 
       @media (min-width: 1400px) {
-        font-size: 72px;
+        font-size: 70px;
       }
 
       @media (min-width: 1600px) {

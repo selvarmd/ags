@@ -21,34 +21,45 @@ export default function PortfolioStackedScroll({ items }: Props) {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    const getCardHeight = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      if (width < 576) return 400;
+      if (width < 768) return 450;
+      if (width < 992) return 500;
+      if (width < 1200) return Math.max(height * 0.7, 600);
+      if (width < 1400) return Math.max(height * 0.75, 650);
+      return Math.max(height * 0.8, 700);
+    };
+
     const onScroll = () => {
       const wrapper = wrapperRef.current;
       if (!wrapper) return;
 
-      const viewportHeight = window.innerHeight;
+      const cardHeight = getCardHeight();
       const scrollTop = window.scrollY;
       const wrapperTop = wrapper.offsetTop;
 
       cardRefs.current.forEach((card, index) => {
         if (!card) return;
 
-        const cardStart = wrapperTop + index * viewportHeight;
-        const prevCardFullyRevealed = cardStart - viewportHeight;
+        const cardStart = wrapperTop + index * cardHeight;
+        const prevCardFullyRevealed = cardStart - cardHeight;
 
-        const baseOffset = index * 60;
+        const baseOffset = index * (cardHeight * 0.067); // 40px for 600px height
 
         if (scrollTop < prevCardFullyRevealed) {
-          card.style.transform = `translateY(${120 + baseOffset}px) scale(1)`;
+          card.style.transform = `translateY(${cardHeight * 0.133 + baseOffset}px) scale(1)`;
           card.style.opacity = `0.9`;
           return;
         }
 
         const progress = Math.min(
-          Math.max((scrollTop - prevCardFullyRevealed) / viewportHeight, 0),
+          Math.max((scrollTop - prevCardFullyRevealed) / cardHeight, 0),
           1
         );
 
-        const translateY = 120 - progress * 120;
+        const translateY = cardHeight * 0.133 - progress * cardHeight * 0.133;
         const scale = 1 - progress * 0.02;
         const opacity = 0.9 + progress * 0.1;
 
@@ -59,15 +70,30 @@ export default function PortfolioStackedScroll({ items }: Props) {
       });
     };
 
+    const onResize = () => {
+      const wrapper = wrapperRef.current;
+      if (wrapper) {
+        const cardHeight = getCardHeight();
+        const width = window.innerWidth;
+        const extraSpace = width >= 992 ? cardHeight * 0.5 : 200;
+        wrapper.style.height = `${items.length * cardHeight + extraSpace}px`;
+      }
+    };
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize);
+    onResize(); // Set initial height
+    
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, [items]);
 
   return (
     <div
       ref={wrapperRef}
       className="portfolio-wrapper"
-      style={{ height: `${items.length * 100}vh` }}
     >
       {items.map((it, idx) => (
         <div
