@@ -28,7 +28,7 @@
   }
 
   .testimonialTitle {
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1.2;
     font-weight: 400;
     margin-bottom: 24px;
@@ -50,7 +50,7 @@
     }
 
     @media (min-width: 1400px) {
-      font-size: 72px;
+      font-size: 70px;
     }
 
     @media (min-width: 1600px) {
@@ -144,11 +144,11 @@
 
     .testiCard {
       padding: 20px;
-      min-height: 560px;
+      min-height: 520px;
       width: 100%;
 
       @media (min-width: 576px) {
-        min-height: 520px;
+        // min-height: 520px;
         width: 240px;
       }
 

@@ -31,7 +31,7 @@
     }
 
     h2 {
-      font-size: 32px;
+      font-size: 30px;
       line-height: 1;
 
       @media (min-width: 576px) {
@@ -40,11 +40,12 @@
 
       @media (min-width: 768px) {
         font-size: 40px;
+        line-height: 1.15;
         width: 57%;
       }
 
       @media (min-width: 992px) {
-        font-size: 52px;
+        font-size: 50px;
       }
 
       @media (min-width: 1200px) {
@@ -53,7 +54,7 @@
       }
 
       @media (min-width: 1400px) {
-        font-size: 72px;
+        font-size: 70px;
       }
 
       @media (min-width: 1600px) {
@@ -124,18 +125,23 @@
       @media (min-width: 576px) {
         padding-left: calc((100vw - 560px) / 1.75);
       }
+
       @media (min-width: 768px) {
         padding-left: calc((100vw - 740px) / 1.75);
       }
+
       @media (min-width: 992px) {
         padding-left: calc((100vw - 980px) / 2);
       }
+
       @media (min-width: 1200px) {
         padding-left: calc((100vw - 1160px) / 2);
       }
+
       @media (min-width: 1400px) {
         padding-left: calc((100vw - 1340px) / 2);
       }
+
       @media (min-width: 1600px) {
         padding-left: calc((100vw - 1490px) / 2);
       }
@@ -272,6 +278,23 @@
               line-height: 30px;
             }
           }
+        }
+      }
+
+      .sliderIconBtn {
+        color: var(--light);
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 48px;
+        height: 48px;
+
+        svg {
+          width: 32px;
+          height: 32px;
         }
       }
     }

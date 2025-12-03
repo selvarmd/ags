@@ -52,12 +52,13 @@
 
       .magicBot {
         width: 260px;
-        animation: float3D 3s ease-in-out infinite,
-          drift 5s ease-in-out infinite, glowPulse 1s ease-in-out infinite;
+        animation: circularMotion 8s linear infinite,
+          glowPulse 3s ease-in-out infinite;
         transform-style: preserve-3d;
+        backface-visibility: hidden;
 
         @media (min-width: 768px) {
-          width: 100%;
+          width: auto;
         }
       }
     }
@@ -76,12 +77,11 @@
       font-family: var(--font);
       font-weight: 500;
       font-size: 38px;
-      line-height: 1.4;
+      line-height: 1;
       margin-bottom: 24px;
 
       @media (min-width: 576px) {
         font-size: 70px;
-        line-height: 1.2;
       }
 
       @media (min-width: 768px) {
@@ -98,7 +98,6 @@
 
       @media (min-width: 1600px) {
         font-size: 120px;
-        line-height: 1;
         margin-bottom: 30px;
       }
     }
@@ -211,47 +210,32 @@
   }
 }
 
-/* 3D bubble float */
-@keyframes float3D {
+@keyframes circularMotion {
   0% {
-    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-  }
-  50% {
-    transform: translateY(-25px) rotateX(8deg) rotateY(-6deg);
-  }
-  100% {
-    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-  }
-}
-
-/* angel/cupid gentle side drift */
-@keyframes drift {
-  0% {
-    transform: translateX(0);
+    transform: translate(0px, 0px);
   }
   25% {
-    transform: translateX(-15px);
+    transform: translate(30px, -80px);
   }
   50% {
-    transform: translateX(8px);
+    transform: translate(60px, 0px);
   }
   75% {
-    transform: translateX(-10px);
+    transform: translate(30px, 60px);
   }
   100% {
-    transform: translateX(0);
+    transform: translate(0px, 0px);
   }
 }
 
-/* magical glow pulse */
 @keyframes glowPulse {
   0% {
-    filter: drop-shadow(0 0 1px #f4dd98); /* soft light gold */
+    filter: drop-shadow(0 0 0 #00ffd5);
   }
   50% {
-    filter: drop-shadow(0 0 4px #00ffcc); /* strong golden shine */
+    filter: drop-shadow(0 0 10px #02ffc0);
   }
   100% {
-    filter: drop-shadow(0 0 1px #f8e1ab); /* warm rich gold */
+    filter: drop-shadow(0 0 0 #00ffd5);
   }
 }

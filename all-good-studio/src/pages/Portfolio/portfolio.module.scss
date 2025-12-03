@@ -3,9 +3,10 @@
 
 .portfolioWrapper {
   padding: 100px 0;
-  background: var(--light) url("/images/background/portfolio-page-bg.png") no-repeat fixed top right;
+  background: var(--light) url("/images/background/portfolio-page-bg.png")
+    no-repeat fixed top right;
   background-size: 100%;
-  
+
   .titleWrapper {
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +49,7 @@
     }
 
     @media (min-width: 1400px) {
-      font-size: 72px;
+      font-size: 70px;
     }
 
     @media (min-width: 1600px) {
