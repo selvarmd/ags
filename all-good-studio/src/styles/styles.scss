@@ -118,6 +118,10 @@ button {
   padding: 20px;
   overflow: hidden;
 
+  .tilted-card-img {
+    display: none;
+  }
+
   .tilted-card-overlay {
     width: 100%;
   }
